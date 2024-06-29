@@ -31,33 +31,33 @@ public class ClientService {
     private final ModelMapper modelMapper;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public List<ClientResponseDTO> getAllUsers() {
+    public List<ClientResponseDTO> getAllClients() {
         return clientRepository.findAll().stream()
-                .map(user -> modelMapper.map(user, ClientResponseDTO.class))
+                .map(Client -> modelMapper.map(Client, ClientResponseDTO.class))
                 .collect(Collectors.toList());
     }
 
-    public ClientResponseDTO getUserById(Long id) {
+    public ClientResponseDTO getClientById(Long id) {
         Client client = clientRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Cliente não encontrado"));
 
         return modelMapper.map(client, ClientResponseDTO.class);
     }
 
-    public ClientResponseDTO getUserByCpf(String cpf) {
+    public ClientResponseDTO getClientByCpf(String cpf) {
         Client client = clientRepository.findByCpf(cpf)
                 .orElseThrow(() -> new ResourceNotFoundException("Cliente não encontrado"));
 
         return modelMapper.map(client, ClientResponseDTO.class);
     }
 
-    public ClientResponseDTO createUser(ClientRequestDTO clientRequestDTO) {
+    public ClientResponseDTO createClient(ClientRequestDTO clientRequestDTO) {
         Client client = modelMapper.map(clientRequestDTO, Client.class);
         client.setPassword(bCryptPasswordEncoder.encode(client.getPassword()));
 
-        Role userRole = roleRepository.findByName("CLIENTE")
+        Role ClientRole = roleRepository.findByName("CLIENTE")
                 .orElseThrow(() -> new ResourceNotFoundException("Cliente não criado, Role 'CLIENTE' não encontrada no banco"));
-        client.setRoles(Collections.singletonList(userRole));
+        client.setRoles(Collections.singletonList(ClientRole));
 
         try {
             Client savedClient = clientRepository.save(client);
@@ -73,7 +73,7 @@ public class ClientService {
         Client client = clientRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Cliente não encontrado"));
 
-        checkUserPermission(client.getCpf());
+        checkClientPermission(client.getCpf());
 
         if (!bCryptPasswordEncoder.matches(oldPassword, client.getPassword())) {
             throw new IllegalArgumentException("A senha antiga não corresponde à senha atual do Cliente");
@@ -84,20 +84,20 @@ public class ClientService {
         clientRepository.save(client);
     }
 
-    public void deleteUser(Long id) {
+    public void deleteClient(Long id) {
         Client client = clientRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Cliente não encontrado"));
 
-        checkUserPermission(client.getCpf());
+        checkClientPermission(client.getCpf());
 
         clientRepository.delete(client);
     }
 
-    private static void checkUserPermission(String user) {
+    private static void checkClientPermission(String Client) {
         Jwt jwt = (Jwt) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        var currentUser = jwt.getSubject();
+        var currentClient = jwt.getSubject();
 
-        if (!currentUser.equals(user)) {
+        if (!currentClient.equals(Client)) {
             throw new AccessDeniedException("Você não tem permissão para atualizar informações de outro Cliente");
         }
     }

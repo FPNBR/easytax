@@ -25,36 +25,36 @@ public class ClientController {
     @ResponseStatus(HttpStatus.OK)
     @Secured("hasRole('ADMIN')")
     @GetMapping
-    public ApiResponse<List<ClientResponseDTO>> getAllUsers() {
-        List<ClientResponseDTO> users = clientService.getAllUsers();
+    public ApiResponse<List<ClientResponseDTO>> getAllClients() {
+        List<ClientResponseDTO> Clients = clientService.getAllClients();
 
-        return new ApiResponse<>(true, "Usuários encontrados", users);
+        return new ApiResponse<>(true, "Usuários encontrados", Clients);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @Secured("hasRole('ADMIN')")
     @GetMapping("/{id}")
-    public ApiResponse<ClientResponseDTO> getUserById(@PathVariable Long id) {
-        ClientResponseDTO user = clientService.getUserById(id);
+    public ApiResponse<ClientResponseDTO> getClientById(@PathVariable Long id) {
+        ClientResponseDTO Client = clientService.getClientById(id);
 
-        return new ApiResponse<>(true, "Usuário encontrado", user);
+        return new ApiResponse<>(true, "Usuário encontrado", Client);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @Secured("hasRole('ADMIN')")
     @GetMapping("/cpf")
-    public ApiResponse<ClientResponseDTO> getUserByCpf(@RequestParam String cpf) {
-        ClientResponseDTO user = clientService.getUserByCpf(cpf);
+    public ApiResponse<ClientResponseDTO> getClientByCpf(@RequestParam String cpf) {
+        ClientResponseDTO Client = clientService.getClientByCpf(cpf);
 
-        return new ApiResponse<>(true, "Usuário encontrado", user);
+        return new ApiResponse<>(true, "Usuário encontrado", Client);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public ApiResponse<ClientResponseDTO> createUser(@RequestBody ClientRequestDTO clientRequestDTO) {
-        ClientResponseDTO createdUser = clientService.createUser(clientRequestDTO);
+    public ApiResponse<ClientResponseDTO> createClient(@RequestBody ClientRequestDTO clientRequestDTO) {
+        ClientResponseDTO createdClient = clientService.createClient(clientRequestDTO);
 
-        return new ApiResponse<>(true, "Usuário criado com sucesso", createdUser);
+        return new ApiResponse<>(true, "Usuário criado com sucesso", createdClient);
     }
 
     @ResponseStatus(HttpStatus.OK)
@@ -67,8 +67,8 @@ public class ClientController {
 
     @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("/{id}")
-    public ApiResponse<Void> deleteUser(@PathVariable Long id) {
-        clientService.deleteUser(id);
+    public ApiResponse<Void> deleteClient(@PathVariable Long id) {
+        clientService.deleteClient(id);
 
         return new ApiResponse<>(true, "Usuário deletado com sucesso", null);
     }

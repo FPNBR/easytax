@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class HackathonRequestDTO {
+public class TransactionsRequestDTO {
 
     private String cpf;
 
