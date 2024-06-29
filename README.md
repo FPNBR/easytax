@@ -2,6 +2,34 @@
 
 Essa API tem como objetivo incentivar doações por meio de incentivos fiscais, permitindo que as doações sejam deduzidas do Imposto de Renda, aliviando a carga tributária dos doadores e aumentando a participação.
 
+## Hackathon realizado pela Uniesp e Marjosports, em 2024, que consistia resolver um dos dois desafios propostos.
+
+### Desafio 2
+
+Sistema:
+
+A aplicação deverá conter:
+
+	1.	Login:
+	•	a. Deverá ser cadastrado um usuário na plataforma
+	•	b. Usuário deverá realizar login para utilizar a plataforma
+	•	c. Campo obrigatório do cadastro CPF, uma vez que o mesmo é o responsável pela doação (seja ela feita por ele ou por terceiro)
+	•	d. O tipo de usuário CLIENTE deverá ter acesso APENAS aos dados do CPF do mesmo
+	•	e. Um master do Role, então deverá consultar qualquer CPF
+	2.	Deverá ser realizado a integração com a API governamental fictícia da receita através da URL
+	3.	Mostrar um extrato contendo todas as transações do cliente na plataforma governamental fictícia
+	4.	É interessante buscar alguém do Desafio 1 para verificar a inclusão dos dados das suas consultas
+
+Extras:
+
+Não será de obrigatoriedade, porém, é contado como pontos extras:
+
+	1.	Testes unitários
+	2.	Testes automatizados
+	3.	Estrutura de banco de dados
+	4.	Layout da aplicação
+	5.	Documentação do seu sistema
+	6.	Atualização da tela em tempo real
 
 ## Tecnologias Utilizadas
 
