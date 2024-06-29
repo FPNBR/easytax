@@ -25,6 +25,8 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_user")
     private Long id;
 
+    private String name;
+
     @CPF
     @Column(nullable = false, unique = true)
     private String cpf;

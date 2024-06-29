@@ -5,12 +5,14 @@ import br.com.easytax.easytax.dto.request.RefreshTokenRequestDTO;
 import br.com.easytax.easytax.dto.response.LoginResponseDTO;
 import br.com.easytax.easytax.service.AuthenticationService;
 import br.com.easytax.easytax.util.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
+@Tag(name = "Autenticação", description = "Endpoint responsável por realizar operações de autenticação")
 @RequestMapping("/oauth2")
 public class AuthenticationController {
 

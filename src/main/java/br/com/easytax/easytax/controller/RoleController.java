@@ -3,6 +3,7 @@ package br.com.easytax.easytax.controller;
 import br.com.easytax.easytax.dto.RoleDTO;
 import br.com.easytax.easytax.service.RoleService;
 import br.com.easytax.easytax.util.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.annotation.Secured;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
+@Tag(name = "Papéis do Usuário", description = "Endpoint para gerenciar os níveis de acesso no sistema")
 @RequestMapping("/role")
 public class RoleController {
 

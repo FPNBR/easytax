@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ClientRequestDTO {
 
+    private String name;
     private String cpf;
     private String password;
 }

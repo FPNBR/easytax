@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ClientResponseDTO {
 
+    private String name;
     private Long id;
     private String cpf;
 }

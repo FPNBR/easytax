@@ -5,6 +5,7 @@ import br.com.easytax.easytax.dto.request.ClientRequestDTO;
 import br.com.easytax.easytax.dto.response.ClientResponseDTO;
 import br.com.easytax.easytax.service.ClientService;
 import br.com.easytax.easytax.util.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
+@Tag(name = "Clientes", description = "Endpoint responsável por realizar operações com os clientes")
 @RequestMapping("/client")
 public class ClientController {
 
