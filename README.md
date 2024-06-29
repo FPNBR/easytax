@@ -78,8 +78,9 @@ Aqui estão os endpoints disponíveis para este projeto:
 
 ```json
 {
-    "cpf": "12345678901",
-    "password": "password123"
+  "name": "teste",
+  "cpf": "68253362072",
+  "password": "123"
 }
 ```
 
@@ -91,7 +92,8 @@ Aqui estão os endpoints disponíveis para este projeto:
 
 ```json
 {
-    "password": "newPassword123"
+  "name": "teste",
+  "password": "123"
 }
 ```
 
@@ -124,4 +126,4 @@ Exemplo de autenticação bem sucedida:
 ```
 
 ## Diagrama Entidade-Relacionamento
-![Diagrama ER](./er.png)
+![Diagrama ER](./ER.png)
