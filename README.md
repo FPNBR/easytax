@@ -66,49 +66,6 @@ Em caso de erro é similar:
 }
 ```
 
-## Endpoints da API
-
-Aqui estão os endpoints disponíveis para este projeto:
-
-### Criar Cliente
-
-- Endpoint: `/api/clients`
-- Método: `POST`
-- Corpo da Requisição:
-
-```json
-{
-  "name": "teste",
-  "cpf": "68253362072",
-  "password": "123"
-}
-```
-
-### Atualizar Cliente
-
-- Endpoint: /api/clients/{id}
-- Método: `PUT`
-- Corpo da Requisição:
-
-```json
-{
-  "name": "teste",
-  "password": "123"
-}
-```
-
-### Deletar Cliente
-
-- Endpoint: /api/clients/{id}
-- Método: `DELETE`
-- Corpo da Requisição:
-
-### Obter Detalhes do Cliente
-
-- Endpoint: /api/clients/{id}
-- Método: `GET`
-- Substituir {id} pelo ID do cliente que você deseja manipular.
-
 ## Autenticação
 Este projeto usa autenticação oauth2. Para autenticar, você precisa enviar um cabeçalho Authorization com o valor Bearer {token} em todas as requisições, substituindo {token} pelo token que você recebeu durante o login.
 
