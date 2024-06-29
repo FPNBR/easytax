@@ -1,0 +1,39 @@
+jwt:
+  private: classpath:private.pem
+  public: classpath:public.pem
+  accessExpiration: 300
+  refreshExpiration: 21600
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/easytax?currentSchema=easytax
+    username: postgres
+    password: postgres
+    hikari:
+      maximum-pool-size: 100
+      minimum-idle: 10
+      idle-timeout: 900000
+      auto-commit: false
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  banner:
+    location: banner.txt
+
+  liquibase:
+    enabled: false
+
+  transaction:
+    rollback-on-commit-failure: true
+
+  session:
+    jdbc:
+      cleanup-cron: 0 0 4 * * *
+
+server:
+  tomcat:
+    max-connections: 1000
+    connection-timeout: 30000
